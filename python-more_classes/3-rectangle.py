@@ -17,6 +17,21 @@ class Rectangle:
         self.width = width
         self.height = height
 
+    def __str__(self):
+        '''Specifies the default representation of a rectangle
+
+        Returns:
+           The representation of the rectangle instance
+        '''
+        result = ""
+        if (self.__height == 0 or self.__width == 0):
+            return (result)
+        for i in range(self.__height):
+            result += ("#" * self.__width)
+            if (i < self.__height - 1):
+                result += "\n"
+        return (result)
+
     @property
     def width(self):
         '''Width getter
@@ -75,6 +90,6 @@ class Rectangle:
         Returns:
            The calculated perimeter of the rectangle
         '''
-        if (self.__height == 0 or self.__width == 0):
+        if (self.__width == 0 or self.__height == 0):
             return (0)
         return (2 * (self.__height + self.__width))
